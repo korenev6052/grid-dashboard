@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {GridsterItem} from "angular-gridster2";
+import {GridItem} from "./grid/model/grid-item";
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import {GridsterItem} from "angular-gridster2";
 })
 export class AppComponent implements OnInit {
 
-  gridItems: GridsterItem[] = [];
+  gridItems: GridItem[] = [];
 
   constructor() {}
 

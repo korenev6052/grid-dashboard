@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DisplayGrid, GridsterConfig, GridsterItem, GridType} from "angular-gridster2";
+import {GridItem} from "../../model/grid-item";
 
 @Component({
   selector: 'app-section',
@@ -8,21 +9,19 @@ import {DisplayGrid, GridsterConfig, GridsterItem, GridType} from "angular-grids
 })
 export class SectionComponent implements OnInit {
 
-  private _parentItem: GridsterItem;
-  @Input() set parentItem(parentItem: GridsterItem) {
-    console.log('parentItem', parentItem);
+  private _parentItem: GridItem;
+  @Input() set parentItem(parentItem: GridItem) {
     this._parentItem = parentItem;
     const {sectionCols, sectionRows} = parentItem.data;
     this.initOptions(sectionCols, sectionRows);
     this.items = parentItem.data.sectionItems;
-    console.log(this.items);
   }
-  get parentItem(): GridsterItem {
+  get parentItem(): GridItem {
     return this._parentItem;
   }
 
   options: GridsterConfig = {};
-  items: GridsterItem[] = [];
+  items: GridItem[] = [];
 
   constructor() {}
 
