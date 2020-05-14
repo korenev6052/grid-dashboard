@@ -1,5 +1,9 @@
+import {GridsterItem} from "angular-gridster2";
+
 export class GridItemData {
-  isSection?: boolean;
+  id: string;
+  isSection: boolean;
   sectionCols?: number;
   sectionRows?: number;
+  sectionItems?: GridsterItem;
 }

@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {GridsterItem} from "angular-gridster2";
 
 @Component({
   selector: 'app-grid-item',
@@ -6,6 +7,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./grid-item.component.scss']
 })
 export class GridItemComponent implements OnInit {
+
+  @Input() item: GridsterItem;
 
   constructor() {}
 

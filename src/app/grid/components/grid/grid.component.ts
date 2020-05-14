@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DisplayGrid, GridsterConfig, GridsterItem, GridType} from "angular-gridster2";
+import {DisplayGrid, GridsterConfig, GridsterItem, GridsterItemComponentInterface, GridType} from "angular-gridster2";
+import set = Reflect.set;
 
 @Component({
   selector: 'app-grid',
@@ -8,7 +9,13 @@ import {DisplayGrid, GridsterConfig, GridsterItem, GridType} from "angular-grids
 })
 export class GridComponent implements OnInit {
 
-  @Input() items: GridsterItem[];
+  private _items: GridsterItem[];
+  @Input() set items(items: GridsterItem[]) {
+    this._items = items;
+  }
+  get items(): GridsterItem[] {
+    return this._items;
+  }
 
   options: GridsterConfig = {};
 
@@ -32,8 +39,20 @@ export class GridComponent implements OnInit {
       },
       resizable: {
         enabled: true,
-      }
+      },
+      itemResizeCallback: this.onItemResize,
     };
+  }
+
+  private onItemResize(item: GridsterItem, itemComponent: GridsterItemComponentInterface) {
+    if (!item.data.isSection) {
+      return;
+    }
+
+    setTimeout(() => {
+      const {cols, rows} = item;
+      console.log(cols, rows);
+    }, 0);
   }
 
 }
