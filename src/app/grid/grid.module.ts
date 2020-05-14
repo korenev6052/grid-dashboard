@@ -13,10 +13,13 @@ import {GridItemComponent} from './components/grid-item/grid-item.component';
     WidgetComponent,
     SectionComponent,
     GridItemComponent,
-    GridsterModule,
   ],
   imports: [
     CommonModule,
-  ]
+    GridsterModule,
+  ],
+  exports: [
+    GridComponent,
+  ],
 })
 export class GridModule {}

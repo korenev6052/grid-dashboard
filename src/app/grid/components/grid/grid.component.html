@@ -1,1 +1,5 @@
-<p>grid works!</p>
+<gridster [options]="options">
+  <gridster-item *ngFor="let item of items" [item]="item">
+    <app-grid-item></app-grid-item>
+  </gridster-item>
+</gridster>
