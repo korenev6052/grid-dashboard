@@ -19,11 +19,13 @@ export class GridComponent implements OnInit {
   }
 
   options: GridsterConfig = {};
+  panelItems: GridItem[] = [];
 
   constructor() {}
 
   ngOnInit() {
     this.initOptions();
+    this.initPanelItems();
   }
 
   private initOptions() {
@@ -41,20 +43,40 @@ export class GridComponent implements OnInit {
       resizable: {
         enabled: true,
       },
+      enableEmptyCellDrop: true,
+      emptyCellDropCallback: this.onEmptyCellDrop.bind(this),
       itemResizeCallback: this.onItemResize,
     };
   }
 
+  private initPanelItems() {
+    this.panelItems = [
+      {cols: 1, rows: 1, x: 0, y: 0, data: {id: 'w0', isSection: false}},
+      {cols: 1, rows: 1, x: 0, y: 0, data: {id: 's0', isSection: true, sectionCols: 1, sectionRows: 1}},
+    ];
+  }
+
   // todo: update section cols and rows when item was resize
   private onItemResize(item: GridItem, itemComponent: GridsterItemComponentInterface) {
-    if (!item.data.isSection) {
+    if (!item.data || !item.data.isSection) {
       return;
     }
 
     setTimeout(() => {
       const {cols, rows} = item;
-      console.log(item, cols, rows);
+      // console.log(item, cols, rows);
     }, 0);
+  }
+
+  onEmptyCellDrop(event: DragEvent, item: GridItem) {
+    const eventItem: GridItem = JSON.parse(event.dataTransfer.getData('text/plain'));
+    const newItem = Object.assign({}, eventItem, item);
+    this.items.push(newItem);
+  }
+
+  onDragstartPanelItem(event: DragEvent, panelItem: GridItem) {
+    event.dataTransfer.setData('text/plain', JSON.stringify(panelItem));
+    event.dataTransfer.dropEffect = 'copy';
   }
 
 }
