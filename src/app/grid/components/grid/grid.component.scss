@@ -1,0 +1,20 @@
+.grid {
+  width: 100vw;
+  height: 100vh;
+
+  .grid-panel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 16px;
+    background-color: lemonchiffon;
+  }
+
+  .grid-panel-item {
+    width: 100px;
+    height: 100px;
+    border: 1px solid gray;
+  }
+}
