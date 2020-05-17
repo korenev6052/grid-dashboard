@@ -41,11 +41,20 @@ export class AppComponent implements OnInit {
         data: {id: '1003', isSection: true, sectionCols: 6, sectionRows: 4}
       },
       {
-        cols: 3,
-        rows: 3,
+        cols: 6,
+        rows: 6,
         x: 2,
         y: 8,
-        data: {id: '1004', isSection: true, sectionCols: 3, sectionRows: 3}
+        data: {
+          id: '1004',
+          isSection: true,
+          sectionCols: 6,
+          sectionRows: 6,
+          sectionItems: [
+            {cols: 1, rows: 1, x: 0, y: 1, data: {id: '1005', isSection: false}},
+            {cols: 1, rows: 1, x: 0, y: 2, data: {id: '1006', isSection: false}}
+          ],
+        }
       },
     ];
   }

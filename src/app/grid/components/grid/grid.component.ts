@@ -43,6 +43,7 @@ export class GridComponent implements OnInit {
       enableEmptyCellDrop: true,
       emptyCellDropCallback: this.onEmptyCellDrop.bind(this),
       itemResizeCallback: this.onItemResize.bind(this),
+      mobileBreakpoint: 0,
     };
   }
 

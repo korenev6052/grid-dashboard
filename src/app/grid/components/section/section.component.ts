@@ -15,6 +15,7 @@ export class SectionComponent implements OnInit, OnDestroy {
   private _item: GridItem = null;
   @Input() set item(item: GridItem) {
     this._item = item;
+    this.innerItems = item.data.sectionItems;
     this.initOptions(item);
   }
   get item(): GridItem {
@@ -31,8 +32,6 @@ export class SectionComponent implements OnInit, OnDestroy {
   constructor() {}
 
   ngOnInit() {
-    this.innerItems = this._item.data.sectionItems;
-
     this.resizeEvent
       .pipe(
         takeUntil(this.resizeEventStop),
@@ -59,6 +58,9 @@ export class SectionComponent implements OnInit, OnDestroy {
         enabled: true,
       },
       initCallback: this.onGridInit.bind(this),
+      itemChangeCallback: this.onItemChange.bind(this),
+      gridSizeChangedCallback: this.onGridSizeChanged.bind(this),
+      mobileBreakpoint: 0,
     };
   }
 
@@ -72,6 +74,14 @@ export class SectionComponent implements OnInit, OnDestroy {
 
   private onGridInit(gridsterComponent: GridsterComponent) {
     this.grid = gridsterComponent;
+  }
+
+  private onItemChange(gridsterItem, gridsterItemComponent) {
+    console.log(gridsterItem);
+  }
+
+  private onGridSizeChanged(gridsterComponent: GridsterComponent) {
+    console.log(gridsterComponent);
   }
 
   ngOnDestroy() {
