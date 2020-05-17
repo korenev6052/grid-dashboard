@@ -1,4 +1,8 @@
 <div class="grid-item">
   <app-widget *ngIf="!item.data.isSection"></app-widget>
-  <app-section *ngIf="item.data.isSection" [parentItem]="item"></app-section>
+  <app-section
+    *ngIf="item.data.isSection"
+    [item]="item"
+    [resizeEvent]="resizeEvent"
+  ></app-section>
 </div>

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 // app imports
 import {GridItem} from "../../model/grid-item";
 
@@ -10,6 +10,7 @@ import {GridItem} from "../../model/grid-item";
 export class GridItemComponent implements OnInit {
 
   @Input() item: GridItem;
+  @Input() resizeEvent: EventEmitter<GridItem>;
 
   constructor() {}
 

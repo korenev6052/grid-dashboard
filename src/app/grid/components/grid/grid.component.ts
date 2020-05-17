@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {DisplayGrid, GridsterConfig, GridsterItemComponentInterface, GridType} from "angular-gridster2";
+import {Component, EventEmitter, Input, OnInit} from '@angular/core';
+import {DisplayGrid, GridsterComponent, GridsterConfig, GridsterItemComponent, GridType} from "angular-gridster2";
 // app imports
 import {GridItem} from "../../model/grid-item";
 
@@ -10,16 +10,12 @@ import {GridItem} from "../../model/grid-item";
 })
 export class GridComponent implements OnInit {
 
-  private _items: GridItem[];
-  @Input() set items(items: GridItem[]) {
-    this._items = items;
-  }
-  get items(): GridItem[] {
-    return this._items;
-  }
+  @Input() items: GridItem[];
 
-  options: GridsterConfig = {};
+  grid: GridsterComponent = null;
+  options: GridsterConfig = null;
   panelItems: GridItem[] = [];
+  resizeEvent: EventEmitter<GridItem> = new EventEmitter<GridItem>();
 
   constructor() {}
 
@@ -43,29 +39,36 @@ export class GridComponent implements OnInit {
       resizable: {
         enabled: true,
       },
+      initCallback: this.onGridInit.bind(this),
       enableEmptyCellDrop: true,
       emptyCellDropCallback: this.onEmptyCellDrop.bind(this),
-      itemResizeCallback: this.onItemResize,
+      itemResizeCallback: this.onItemResize.bind(this),
     };
   }
 
   private initPanelItems() {
     this.panelItems = [
-      {cols: 1, rows: 1, x: 0, y: 0, data: {id: 'w0', isSection: false}},
-      {cols: 1, rows: 1, x: 0, y: 0, data: {id: 's0', isSection: true, sectionCols: 1, sectionRows: 1}},
+      {cols: 1, rows: 1, x: 0, y: 0, data: {id: '0000', isSection: false}},
+      {cols: 1, rows: 1, x: 0, y: 0, data: {id: '0000', isSection: true, sectionCols: 1, sectionRows: 1}},
     ];
   }
 
-  // todo: update section cols and rows when item was resize
-  private onItemResize(item: GridItem, itemComponent: GridsterItemComponentInterface) {
+  private onGridInit(gridsterComponent: GridsterComponent) {
+    this.grid = gridsterComponent;
+  }
+
+  private onItemResize(item: GridItem, itemComponent: GridsterItemComponent) {
     if (!item.data || !item.data.isSection) {
       return;
     }
 
     setTimeout(() => {
-      const {cols, rows} = item;
-      // console.log(item, cols, rows);
-    }, 0);
+      const cols = item.cols;
+      const rows = item.rows;
+      item.data.sectionCols = cols;
+      item.data.sectionRows = rows;
+      this.resizeEvent.emit(item);
+    });
   }
 
   onEmptyCellDrop(event: DragEvent, item: GridItem) {
