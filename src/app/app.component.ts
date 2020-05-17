@@ -56,6 +56,13 @@ export class AppComponent implements OnInit {
           ],
         }
       },
+      {
+        cols: 1,
+        rows: 1,
+        x: 10,
+        y: 0,
+        data: {id: '1007', isSection: false}
+      },
     ];
   }
 

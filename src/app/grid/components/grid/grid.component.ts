@@ -33,8 +33,14 @@ export class GridComponent implements OnInit {
       minRows: 10,
       maxRows: 100,
       margin: 0,
+      swap: false,
+      pushItems: false,
       draggable: {
         enabled: true,
+        dropOverItems: true,
+        start: this.onDraggableStart.bind(this),
+        stop: this.onDraggableStop.bind(this),
+        dropOverItemsCallback: this.onDropOverItems.bind(this),
       },
       resizable: {
         enabled: true,
@@ -72,15 +78,40 @@ export class GridComponent implements OnInit {
     });
   }
 
-  onEmptyCellDrop(event: DragEvent, item: GridItem) {
+  private onEmptyCellDrop(event: DragEvent, item: GridItem) {
     const eventItem: GridItem = JSON.parse(event.dataTransfer.getData('text/plain'));
     const newItem = Object.assign({}, eventItem, item);
     this.items.push(newItem);
   }
 
   onDragstartPanelItem(event: DragEvent, panelItem: GridItem) {
+    console.log('drag panel');
     event.dataTransfer.setData('text/plain', JSON.stringify(panelItem));
     event.dataTransfer.dropEffect = 'copy';
+  }
+
+  private onDraggableStart(item: GridItem, gridsterItem: GridsterItemComponent, event: MouseEvent) {
+    console.log('start item', item);
+    console.log('start gridsteritem', gridsterItem);
+    console.log('start event', event);
+  }
+
+  private onDraggableStop(item: GridItem, gridsterItem: GridsterItemComponent, event: MouseEvent) {
+    console.log('stop item', item);
+    console.log('stop gridsterItem', gridsterItem);
+    console.log('stop event', event);
+    return new Promise(resolve => resolve(true));
+  }
+
+  private onDropOverItems(sourceItem: GridItem, targetItem: GridItem, grid: GridComponent) {
+    console.log('dropOver sourceItem', sourceItem);
+    console.log('dropOver targetItem', targetItem);
+    console.log('dropOver grid', grid);
+  }
+
+  onDragstartItem(event, item) {
+    console.log('html5 dragstart event', event);
+    console.log('html5 dragstart item', item);
   }
 
 }

@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1592569-ab60-4f69-b794-0ec3c2d99982" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/grid/components/grid/grid.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/grid/components/grid/grid.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/grid/components/grid/grid.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/grid/components/grid/grid.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/grid/components/section/section.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/grid/components/section/section.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/grid/components/section/section.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/grid/components/section/section.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/grid/components/widget/widget.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/grid/components/widget/widget.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/grid/components/widget/widget.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/grid/components/widget/widget.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,15 +15,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/grid/components/grid-item/grid-item.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="16" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/grid/grid.module.ts">
           <provider selected="true" editor-type-id="text-editor">
@@ -71,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/src/app/grid/components/widget/widget.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="26" selection-start-column="26" selection-end-column="26" />
+              <caret column="73" selection-start-column="50" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -79,26 +70,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/grid/components/grid/grid.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+            <state relative-caret-position="535">
+              <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/grid/components/grid/grid.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="18" column="49" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="18" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/grid/components/grid/grid.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3">
+              <caret line="87" column="30" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/grid/components/widget/widget.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="266">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -106,7 +106,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node_modules/angular-gridster2/lib/gridsterConfig.interface.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="-633">
               <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
             </state>
           </provider>
@@ -125,7 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/grid/components/grid/grid.component.html" />
         <option value="$PROJECT_DIR$/src/app/grid/components/grid-item/grid-item.component.html" />
         <option value="$PROJECT_DIR$/src/app/grid/components/grid-item/grid-item.component.ts" />
         <option value="$PROJECT_DIR$/src/app/grid/components/section/section.component.scss" />
@@ -135,9 +134,12 @@
         <option value="$PROJECT_DIR$/src/app/grid/components/widget/widget.component.scss" />
         <option value="$PROJECT_DIR$/src/app/grid/components/section/section.component.html" />
         <option value="$PROJECT_DIR$/src/app/grid/grid.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/src/app/grid/components/section/section.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/grid/components/grid/grid.component.html" />
         <option value="$PROJECT_DIR$/src/app/grid/components/grid/grid.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/grid/components/widget/widget.component.html" />
+        <option value="$PROJECT_DIR$/src/app/grid/components/widget/widget.component.ts" />
       </list>
     </option>
   </component>
@@ -256,12 +258,12 @@
       <updated>1589472630179</updated>
       <workItem from="1589472631390" duration="11813000" />
       <workItem from="1589516267111" duration="934000" />
-      <workItem from="1589724706640" duration="10860000" />
+      <workItem from="1589724706640" duration="14223000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24208000" />
+    <option name="totallyTimeSpent" value="27571000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
@@ -362,13 +364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/grid/components/grid/grid.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/grid/components/grid/grid.component.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -453,13 +448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/grid/components/widget/widget.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/grid/components/section/section.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -478,27 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/angular-gridster2/lib/gridsterConfig.interface.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/grid/components/widget/widget.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/grid/components/section/section.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
@@ -509,10 +476,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/angular-gridster2/lib/gridsterConfig.interface.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-633">
+          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/grid/components/grid/grid.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+        <state relative-caret-position="3">
+          <caret line="87" column="30" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/grid/components/grid/grid.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="49" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="18" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/grid/components/widget/widget.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="73" selection-start-column="50" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/grid/components/widget/widget.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
         </state>
       </provider>
     </entry>
