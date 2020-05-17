@@ -1,5 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {DisplayGrid, GridsterConfig, GridsterItem, GridType} from "angular-gridster2";
+import {Component, EventEmitter, Input, OnDestroy, OnInit} from '@angular/core';
+import {DisplayGrid, GridsterComponent, GridsterConfig, GridType} from "angular-gridster2";
+import {Subject} from "rxjs";
+import {takeUntil} from "rxjs/operators";
+// app imports
 import {GridItem} from "../../model/grid-item";
 
 @Component({
@@ -7,42 +10,70 @@ import {GridItem} from "../../model/grid-item";
   templateUrl: './section.component.html',
   styleUrls: ['./section.component.scss']
 })
-export class SectionComponent implements OnInit {
+export class SectionComponent implements OnInit, OnDestroy {
 
-  private _parentItem: GridItem;
-  @Input() set parentItem(parentItem: GridItem) {
-    this._parentItem = parentItem;
-    const {sectionCols, sectionRows} = parentItem.data;
-    this.initOptions(sectionCols, sectionRows);
-    this.items = parentItem.data.sectionItems;
+  private _item: GridItem = null;
+  @Input() set item(item: GridItem) {
+    this._item = item;
+    this.initOptions(item);
   }
-  get parentItem(): GridItem {
-    return this._parentItem;
+  get item(): GridItem {
+    return this._item;
   }
 
+  @Input() resizeEvent: EventEmitter<GridItem>;
+
+  grid: GridsterComponent = null;
   options: GridsterConfig = {};
-  items: GridItem[] = [];
+  innerItems: GridItem[] = [];
+  resizeEventStop: Subject<void> = new Subject<void>();
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.innerItems = this._item.data.sectionItems;
 
-  private initOptions(cols: number, rows: number) {
+    this.resizeEvent
+      .pipe(takeUntil(this.resizeEventStop))
+      .subscribe((item: GridItem) => {
+        this.updateGridSize(item);
+      });
+  }
+
+  private initOptions(item: GridItem) {
     this.options = {
       gridType: GridType.Fit,
       displayGrid: DisplayGrid.Always,
-      minCols: cols,
-      maxCols: cols,
-      minRows: rows,
-      maxRows: rows,
+      minCols: item.data.sectionCols,
+      maxCols: item.data.sectionCols,
+      minRows: item.data.sectionRows,
+      maxRows: item.data.sectionRows,
       margin: 0,
       draggable: {
         enabled: true,
       },
       resizable: {
         enabled: true,
-      }
+      },
+      initCallback: this.onGridInit.bind(this),
     };
+  }
+
+  private updateGridSize(item: GridItem) {
+    this.options.minCols = item.data.sectionCols;
+    this.options.maxCols = item.data.sectionCols;
+    this.options.minRows = item.data.sectionRows;
+    this.options.maxRows = item.data.sectionRows;
+    this.grid.options.api.optionsChanged();
+  }
+
+  private onGridInit(gridsterComponent: GridsterComponent) {
+    this.grid = gridsterComponent;
+  }
+
+  ngOnDestroy() {
+    this.resizeEventStop.next();
+    this.resizeEventStop.complete();
   }
 
 }
