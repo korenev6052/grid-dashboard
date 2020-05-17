@@ -11,4 +11,8 @@ export class WidgetComponent implements OnInit {
 
   ngOnInit() {}
 
+  onDragstartItem(event) {
+    console.log(event);
+  }
+
 }

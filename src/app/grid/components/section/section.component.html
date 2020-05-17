@@ -1,6 +1,6 @@
 <div class="section">
   <gridster [options]="options" class="section-grid">
-    <gridster-item *ngFor="let item of items" [item]="item">
+    <gridster-item *ngFor="let item of innerItems" [item]="item">
       <app-grid-item [item]="item"></app-grid-item>
     </gridster-item>
   </gridster>

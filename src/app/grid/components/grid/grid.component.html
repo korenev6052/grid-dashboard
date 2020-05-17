@@ -3,7 +3,8 @@
   <div class="grid-panel">
     <div
       *ngFor="let panelItem of panelItems"
-      class="grid-panel-item" draggable="true"
+      class="grid-panel-item"
+      draggable="true"
       (dragstart)="onDragstartPanelItem($event, panelItem)"
     >
       isSection: {{panelItem.data.isSection}}
@@ -11,8 +12,16 @@
   </div>
 
   <gridster [options]="options">
-    <gridster-item *ngFor="let item of items" [item]="item">
-      <app-grid-item [item]="item" [resizeEvent]="resizeEvent"></app-grid-item>
+    <gridster-item
+      *ngFor="let item of items"
+      [item]="item"
+      draggable="true"
+      (dragstart)="onDragstartItem($event, item)"
+    >
+      <app-grid-item
+        [item]="item"
+        [resizeEvent]="resizeEvent"
+      ></app-grid-item>
     </gridster-item>
   </gridster>
 
