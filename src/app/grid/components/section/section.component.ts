@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit} from '@angular/core';
 import {DisplayGrid, GridsterComponent, GridsterConfig, GridType} from "angular-gridster2";
 import {Subject} from "rxjs";
-import {takeUntil} from "rxjs/operators";
+import {filter, takeUntil} from "rxjs/operators";
 // app imports
 import {GridItem} from "../../model/grid-item";
 
@@ -34,7 +34,10 @@ export class SectionComponent implements OnInit, OnDestroy {
     this.innerItems = this._item.data.sectionItems;
 
     this.resizeEvent
-      .pipe(takeUntil(this.resizeEventStop))
+      .pipe(
+        takeUntil(this.resizeEventStop),
+        filter((item: GridItem) => item.data.id === this.item.data.id)
+      )
       .subscribe((item: GridItem) => {
         this.updateGridSize(item);
       });
