@@ -1,1 +1,5 @@
-<p>single-grid works!</p>
+<gridster [options]="options">
+  <gridster-item *ngFor="let item of items" [item]="item">
+    Widget
+  </gridster-item>
+</gridster>

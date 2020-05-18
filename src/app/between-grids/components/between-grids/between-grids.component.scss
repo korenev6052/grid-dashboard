@@ -1,0 +1,19 @@
+.between-grids {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.single-grid {
+  height: 100vh;
+  width: 50vw;
+  display: block;
+
+  &.first-grid ::ng-deep gridster {
+    background: goldenrod;
+  }
+
+  &.second-grid ::ng-deep gridster {
+    background: darkkhaki;
+  }
+}

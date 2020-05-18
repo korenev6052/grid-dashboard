@@ -5,6 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {GridModule} from "./grid/grid.module";
+import {BetweenGridsModule} from "./between-grids/between-grids.module";
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {GridModule} from "./grid/grid.module";
     AppRoutingModule,
     BrowserAnimationsModule,
     GridModule,
+    BetweenGridsModule,
   ],
   providers: [],
   bootstrap: [
